@@ -1,0 +1,65 @@
+====
+ktouch-wiki-gen
+====
+
+Ktouch-wkik-gen grabs the text of the specified article from wikipedia
+and converts it into ktouch's xml lesson format
+
+Features
+========
+
+Actually pretty much works. If you don't run ktouch in widescreen you can change 
+the number of characters per line.
+
+Installing
+==========
+
+Ktouch-wiki-gen uses:
+*Python2.7
+*BeautifulSoup
+
+
+FAQ
+===
+
+Why make this?
+ I found ktouch's interface sexy and beautiful but its default lessons were
+ preventing me from making it to the next level. It seems like their ought to
+ be a large repository of CC licensed ktouch lessons but it was easier to make
+ this.
+
+Who helped?
+ Well it's just me, Spencer, on the active side of things. But big shoutouts to
+ http://1bnr.wordpress.com/ and http://networking.ringofsaturn.com/Web/removetags.php
+ They were both very helpful. 
+
+
+Contact
+=======
+
+krum.spencer@gmail.com
+
+Date
+====
+
+November, 2010
+
+
+License
+=======
+
+
+Copyright © 2010 Spencer Krum
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
