@@ -1,5 +1,5 @@
 #!/usr/bin/python2.7
-
+# -*- coding: utf-8 -*-
 #    Copyright © 2010 Spencer Krum
 
 #    This program is free software: you can redistribute it and/or modify
@@ -20,9 +20,8 @@ from BeautifulSoup import BeautifulSoup
 import re
 import datetime
 
-url = "http://en.wikipedia.com/wiki/lasers"
 
-def doit():
+def doit(url):
     
     class MyOpener(FancyURLopener) :
         version = 'Mozilla/5.0 (Windows NT 5.1; U; en-US; rv:1.8.1) Gecko/20091102 Firefox/3.5.5'
@@ -36,6 +35,7 @@ def doit():
     #process name o file
     title = soup.title.string
     t = str(title)
+    print "Retrieving %s" % t
     t = t.split()
     for i in range(4):
         t.pop()
@@ -48,11 +48,12 @@ def doit():
     for i in paragraphs:
         t =  str(i)
         f = re.sub('<[a-zA-Z\/][^>]*>','',t) #parse out html
-        s = re.sub('\[\d?\d?\d?\]', '', f) #parse out citations
+        z = re.sub('&#160;', '', f)         #parse out untypeable character
+        s = re.sub('\[\d?\d?\d?\]', '', z) #parse out citations
         text.append(s)
     
     kttitle = strtitle + '.ktouch.xml'
-    ktouchfile = open(kttitle, 'w')
+    ktouchfile = open('output/%s' % kttitle, 'w')
     
     ktouchfile.write('<?xml version="1.0" ?>\n')
     ktouchfile.write('<KTouchLecture>\n')
@@ -75,13 +76,13 @@ def doit():
         lines = []
         length = len(s)
         c = 0
-        print "total length is %s" %length
-        print s
+        #print "total length is %s" %length
+        #print s
         while c <= length:
             oldc = c
             c += linelength
             #from pdb import set_trace; set_trace()
-            print c
+            #print c
             #if length == 514:
             #    from pdb import set_trace; set_trace()
             if oldc < (length - linelength):
@@ -111,6 +112,26 @@ def doit():
     
     ktouchfile.write('\t</Levels>\n')
     ktouchfile.write('</KTouchLecture>\n')
+    #print text
+
+
+
+def intro():
+    print "Welcome to ktouch-wiki-gen"
+    shortname = raw_input("Please enter the shortname of the wikipedia article you wish to retrieve: ")
+    shortname = re.sub('\ ', '_', shortname)
+    if shortname != '':
+        url = "http://en.wikipedia.com/wiki/" + shortname
+    else:
+        url = "http://en.wikipedia.com/wiki/lasers"
+
+    return url
+url = intro()
+
+doit(url)
+
+#This is the ktouch xml prototype
+
 #<?xml version="1.0" ?>
 #<KTouchLecture>
 #  <Title>
@@ -126,7 +147,3 @@ def doit():
 #
 #  </Levels>
 #</KTouchLecture>
-    print text
-
-
-doit()
