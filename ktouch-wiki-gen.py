@@ -37,7 +37,7 @@ def doit(url):
     t = str(title)
     print "Retrieving %s" % t
     t = t.split()
-    for i in range(4):
+    for i in range(5):
         t.pop()
     strtitle = ''
     for i in t:
@@ -50,6 +50,7 @@ def doit(url):
         f = re.sub('<[a-zA-Z\/][^>]*>','',t) #parse out html
         z = re.sub('&#160;', '', f)         #parse out untypeable character
         s = re.sub('\[\d?\d?\d?\]', '', z) #parse out citations
+        s = s.decode('ascii', 'ignore')
         text.append(s)
     
     kttitle = strtitle + '.ktouch.xml'

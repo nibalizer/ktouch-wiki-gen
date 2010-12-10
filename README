@@ -17,6 +17,15 @@ Installing
 Ktouch-wiki-gen uses:
 *Python2.7
 *BeautifulSoup
+*ktouch
+
+Run ./ktouch-wiki-gen
+*you may have to alter the first line of the program depending on your path
+
+It will generate a .ktouch.xml file in an output directory.
+In ktouch go to File -> Open Lecture, and navigate to the generated file.
+In Settings -> Ktouch settings -> Training Options you can disable typwritter mode
+which will make turn off the "enter after every line" behavior. 
 
 
 FAQ
@@ -29,9 +38,13 @@ Why make this?
  this.
 
 Who helped?
- Well it's just me, Spencer, on the active side of things. But big shoutouts to
+ Well it's just me, Spencer, on the active side of things. Thanks to Alevar as well.But big shoutouts to
  http://1bnr.wordpress.com/ and http://networking.ringofsaturn.com/Web/removetags.php
  They were both very helpful. 
+
+Why do I have to hit enter all the time?
+ You don't. In Settings -> Ktouch settings -> Training Options you can disable typwritter mode
+ which will make turn off the "enter after every line" behavior. 
 
 
 Contact
